@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MultiSelectListView.MultiSelect">
+    <ContentPage.Content>
+		<ListView ItemsSource="{Binding DataList}" Margin="20">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<ViewCell>
+						<Grid Margin="0,0,0,10">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<StackLayout VerticalOptions="CenterAndExpand">
+								<Label Text="{Binding Data.Name}"  />
+								<Label Text="{Binding Data.Description}" FontSize="10" />
+							</StackLayout>
+							<Switch IsToggled="{Binding Selected}" Grid.Column="1" />
+						</Grid>
+					</ViewCell>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+			<ListView.Footer>
+				<Button Text="Finished" Command="{Binding FinishCommand}" />
+			</ListView.Footer>
+		</ListView>
+	</ContentPage.Content>
+</ContentPage>
